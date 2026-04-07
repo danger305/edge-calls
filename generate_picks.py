@@ -157,7 +157,7 @@ def analyze_ticker(symbol):
         elif direction == "PUT" and pct < 0:
             score += 1
 
-        # ── Risk tier ───────────────────────────────────────────
+        # ── Risk tier ──────────────────────────────────────────
         if score >= RISK_HIGH_SCORE:
             risk = "low"
         elif score >= RISK_MED_SCORE:
@@ -353,7 +353,7 @@ def main():
     print("\nFetching live options chain data...\n")
 
     exp_date = next_options_expiry()
-    picks    = [build_pich(r, exp_date) for r in top]
+    picks    = [build_pick(r, exp_date) for r in top]
 
     for p in picks:
         print(f"  {p['ticker']:6s} {p['direction']}  {p['contract']}  premium={p['premium']}  risk={p['risk']}")
